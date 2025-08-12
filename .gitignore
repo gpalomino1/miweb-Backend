@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Editores
 .idea/
 .vscode/
@@ -37,7 +37,7 @@ yarn-error.log*
 # Archivos temporales
 *.swp
 *~
-=======
+
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
 #launch.json folder
@@ -60,4 +60,4 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
->>>>>>> 7e09e5cbfa6dbf0d285a3c92ac8d2e7de81b55e2
+
