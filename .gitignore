@@ -1,0 +1,38 @@
+# Editores
+.idea/
+.vscode/
+
+# Dependencias
+vendor/
+node_modules/
+
+# Builds
+build/
+dist/
+
+# Logs
+logs/
+*.log
+
+# Entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Caché
+.phpunit.result.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cobertura
+/coverage/
+
+# Archivos temporales
+*.swp
+*~
