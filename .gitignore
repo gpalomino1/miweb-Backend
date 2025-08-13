@@ -60,3 +60,4 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+app/settings.php

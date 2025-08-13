@@ -27,5 +27,5 @@ return function (App $app) {
     });
 
        //  ruta POST /contacto
-    $app->post('/api/contacto', \App\Application\Actions\Contacto\ContactoAction::class);
+    $app->post('/api/contacto', \App\Application\Actions\ContactoAction::class);
 };

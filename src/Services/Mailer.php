@@ -12,10 +12,23 @@ class Mailer
 
     public function __construct()
     {
-        // Carga las variables de entorno
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../..'); // va a la raíz del proyecto
+        // 🔥 Ruta absoluta explícita (cambia si mueves el proyecto)
+        $projectRoot = '/home/gemma/Escritorio/miweb-backend';
+
+        // Verifica que exista
+        if (!file_exists($projectRoot)) {
+            throw new \RuntimeException("La carpeta del proyecto no existe: $projectRoot");
+        }
+
+        if (!file_exists("$projectRoot/.env")) {
+            throw new \RuntimeException("No se encontró .env en: $projectRoot/.env");
+        }
+
+        // Carga el .env
+        $dotenv = Dotenv::createImmutable($projectRoot);
         $dotenv->load();
 
+        // Inicializa PHPMailer
         $this->mail = new PHPMailer(true);
     }
 
@@ -34,7 +47,12 @@ class Mailer
             $this->mail->addAddress('infocodewm@gmail.com', 'Recepción de Mensajes');
             $this->mail->isHTML(true);
             $this->mail->Subject = 'Nuevo mensaje desde el sitio web';
-            $this->mail->Body    = "Nombre: $nombre<br>Email: $email<br>Mensaje: $mensaje";
+            $this->mail->Body    = "
+                <h3>Nuevo mensaje de contacto</h3>
+                <p><strong>Nombre:</strong> $nombre</p>
+                <p><strong>Email:</strong> $email</p>
+                <p><strong>Mensaje:</strong><br>$mensaje</p>
+            ";
 
             $this->mail->send();
             return true;
